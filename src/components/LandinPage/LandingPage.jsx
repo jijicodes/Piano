@@ -13,7 +13,7 @@ export const LandingPage = ({}) => {
       fill
       background={{
         size: "contain",
-        image: `url(${process.env.PUBLIC_URL}landingPage.gif)`,
+        image: `url(${process.env.PUBLIC_URL}/landingPage.gif)`,
       }}
     >
       {on && (
