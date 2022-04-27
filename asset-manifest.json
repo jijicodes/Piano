@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Piano/static/css/main.073c9b0a.css",
+    "main.js": "/Piano/static/js/main.b2d4874f.js",
+    "index.html": "/Piano/index.html",
+    "main.073c9b0a.css.map": "/Piano/static/css/main.073c9b0a.css.map",
+    "main.b2d4874f.js.map": "/Piano/static/js/main.b2d4874f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.b2d4874f.js"
+  ]
+}
