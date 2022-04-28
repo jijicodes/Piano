@@ -1,11 +1,13 @@
 export const acme = {
+  anchor: { hover: { textDecoration: "none", fontWeight: "200" } },
+
   global: { colors: { text: "black" } },
   text: {
     small: {
       size: "10px",
     },
     medium: {
-      size: "30px",
+      size: "20px",
     },
     large: {
       size: "40px",
