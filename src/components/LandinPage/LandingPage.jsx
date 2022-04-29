@@ -23,7 +23,32 @@ export const LandingPage = ({}) => {
           onEsc={() => setOn(false)}
         >
           {size === "small" ? (
-            <Box>small</Box>
+            <Box direction="column" gap="small" align="center">
+              <Text
+                weight="bold"
+                size="small"
+                textAlign="center"
+                margin={{
+                  top: "small",
+                  left: "small",
+                  right: "small",
+                  bottom: "none",
+                }}
+              >
+                Ready to be the next Grammy Awards Winner?
+              </Text>
+              <Box width="50px" margin={{ bottom: "small" }}>
+                <Button
+                  size="xsmall"
+                  primary
+                  color="#39AD9C"
+                  hoverIndicator={{ weight: "bolder" }}
+                  label="Go"
+                  onClick={() => console.log("clicked")}
+                  alignSelf="center"
+                />
+              </Box>
+            </Box>
           ) : (
             <Box direction="column" gap="medium">
               <Text

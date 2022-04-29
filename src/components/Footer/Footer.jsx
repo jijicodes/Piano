@@ -10,12 +10,10 @@ export const Footer = () => {
       <Github color="white" size={size === "small" ? "small" : "medium"} />
     </p>
   );
-  console.log(size, "sixe");
   return (
-    <Box align="center" fill="horizontal">
+    <Box align="center">
       <Box
-        align="center"
-        justify="center"
+        // justify="center"
         width={size === "small" ? "-10vw" : "50vw"}
         gap="medium"
         margin={size === "small" ? "-12vh" : "-8vh"}

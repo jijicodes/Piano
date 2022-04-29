@@ -4,7 +4,7 @@ export const acme = {
   global: { colors: { text: "black" } },
   text: {
     small: {
-      size: "10px",
+      size: "13px",
     },
     medium: {
       size: "20px",
