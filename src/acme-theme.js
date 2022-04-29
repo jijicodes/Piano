@@ -13,7 +13,7 @@ export const acme = {
       size: "40px",
     },
     font: {
-      family: "Georgia, Palatino",
+      family: "fantasy, Verdana, sans-serif",
     },
   },
 };
