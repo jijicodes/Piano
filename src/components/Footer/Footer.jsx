@@ -5,7 +5,7 @@ import { Github } from "grommet-icons";
 export const Footer = () => {
   const size = useContext(ResponsiveContext);
   const phrase = (
-    <p align="center" font-size="8px" style={{ color: "black" }}>
+    <p align="center" fontSize="8px" style={{ color: "black" }}>
       Handcrafted in Denver, CO <br /> by Jijicodes{" "}
       <Github color="white" size={size === "small" ? "small" : "medium"} />
     </p>
