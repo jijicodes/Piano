@@ -2,13 +2,37 @@ import React, { useContext } from "react";
 import { Box, ResponsiveContext, Text } from "grommet";
 import { Keyboard } from "../Keyboard/Keyboard";
 
+const play = (fValue) => {
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  var ctx = new AudioContext();
+  var o = ctx.createOscillator();
+  o.type = "square";
+  o.frequency.value = fValue;
+  o.start(0);
+  o.connect(ctx.destination);
+
+  setTimeout(() => o.stop(0), 500);
+};
+
+const notes = {
+  C: 261.63,
+  "C#": 277.18,
+  D: 293.66,
+  "D#": 311.13,
+  E: 329.63,
+  F: 349.23,
+  "F#": 261.63,
+  G: 261.63,
+  "G#": 261.63,
+  A: 261.63,
+  "A#": 261.63,
+  B: 261.63,
+};
+
 export const PianoPage = () => {
   const size = useContext(ResponsiveContext);
-  const audioCtx = new AudioContext({
-    latencyHint: "interactive",
-    sampleRate: 44100,
-  });
-  console.log(audioCtx);
+  console.log({ notes });
+
   return (
     <Box justify="around" align="center" direction="column" fill>
       {size === "small" ? (
@@ -38,7 +62,16 @@ export const PianoPage = () => {
           </Text>
           <Box direction="row" justify="center">
             <Box border={{ color: "black", size: "medium" }} direction="row">
-              <Keyboard width={300} /> <Keyboard width={300} />
+              <Keyboard
+                width={300}
+                onKeyPress={(key) =>
+                  // const b = notes.filter((a) => a.name === key.id)
+                  //  b ?
+                  play(notes[key])
+                }
+              />
+
+              {/* <Keyboard width={300} /> */}
             </Box>
           </Box>
           <Box>&nbsp;</Box>
