@@ -21,12 +21,13 @@ const notes = {
   "D#": 311.13,
   E: 329.63,
   F: 349.23,
-  "F#": 261.63,
-  G: 261.63,
-  "G#": 261.63,
-  A: 261.63,
-  "A#": 261.63,
-  B: 261.63,
+  "F#": 369.99,
+  G: 392.0,
+  "G#": 415.3,
+  A: 440.0,
+  "A#": 466.16,
+  B: 493.88,
+  // C2: 523.25,
 };
 
 export const PianoPage = () => {
@@ -62,16 +63,12 @@ export const PianoPage = () => {
           </Text>
           <Box direction="row" justify="center">
             <Box border={{ color: "black", size: "medium" }} direction="row">
+              <Keyboard width={300} onKeyPress={(key) => play(notes[key])} />
+
               <Keyboard
                 width={300}
-                onKeyPress={(key) =>
-                  // const b = notes.filter((a) => a.name === key.id)
-                  //  b ?
-                  play(notes[key])
-                }
+                onKeyPress={(key) => play(notes[key] * 2)}
               />
-
-              {/* <Keyboard width={300} /> */}
             </Box>
           </Box>
           <Box>&nbsp;</Box>
