@@ -13,7 +13,7 @@ export const acme = {
       size: "40px",
     },
     font: {
-      family: "fantasy, Verdana, sans-serif",
+      family: "sans-serif",
     },
   },
 };
