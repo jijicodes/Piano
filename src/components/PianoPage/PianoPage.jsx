@@ -1,18 +1,6 @@
 import React, { useContext } from "react";
-import { Box, ResponsiveContext, Text } from "grommet";
-import { Keyboard } from "../Keyboard/Keyboard";
-
-const play = (fValue) => {
-  window.AudioContext = window.AudioContext || window.webkitAudioContext;
-  var ctx = new AudioContext();
-  var o = ctx.createOscillator();
-  o.type = "square";
-  o.frequency.value = fValue;
-  o.start(0);
-  o.connect(ctx.destination);
-
-  setTimeout(() => o.stop(0), 500);
-};
+import { Box, Keyboard, ResponsiveContext, Text } from "grommet";
+import { PianoKeyboard } from "../PianoKeyboard/PianoKeyboard";
 
 const notes = {
   C: 261.63,
@@ -30,6 +18,52 @@ const notes = {
   // C2: 523.25,
 };
 
+const play = (fValue) => {
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+  var ctx = new AudioContext();
+  var o = ctx.createOscillator();
+  o.type = "square";
+  o.frequency.value = fValue;
+  o.start(0);
+  o.connect(ctx.destination);
+
+  setTimeout(() => o.stop(0), 200);
+};
+
+const first = {
+  a: notes["C"],
+  s: notes["D"],
+  d: notes["E"],
+  f: notes["F"],
+  g: notes["G"],
+  h: notes["A"],
+  j: notes["B"],
+
+  w: notes["C#"],
+  e: notes["D#"],
+  r: notes["F#"],
+  t: notes["G#"],
+  y: notes["A#"],
+};
+
+const second = {
+  z: notes["C"] * 2,
+  x: notes["D"] * 2,
+  c: notes["E"] * 2,
+  v: notes["F"] * 2,
+  b: notes["G"] * 2,
+  n: notes["A"] * 2,
+  m: notes["B"] * 2,
+
+  u: notes["C#"] * 2,
+  i: notes["D#"] * 2,
+  o: notes["F#"] * 2,
+  p: notes["G#"] * 2,
+  l: notes["A#"] * 2,
+};
+
+const letter = { ...first, ...second };
+
 export const PianoPage = () => {
   const size = useContext(ResponsiveContext);
   console.log({ notes });
@@ -44,15 +78,18 @@ export const PianoPage = () => {
           <Box
             direction="row"
             justify="center"
-            border={{ color: "black", size: "medium" }}
+            border={{ color: "black", size: "small" }}
           >
-            <Keyboard
+            <PianoKeyboard
               width={180}
-              onKeyPress={(key) => {
-                console.log("yeah", key);
-              }}
+              onKeyPress={(key) => play(notes[key])}
+              letterSound={Object.keys(first)}
             />
-            <Keyboard width={180} />
+            <PianoKeyboard
+              width={180}
+              onKeyPress={(key) => play(notes[key] * 2)}
+              letterSound={Object.keys(second)}
+            />
           </Box>
           <Box>&nbsp;</Box>
         </Box>
@@ -63,12 +100,21 @@ export const PianoPage = () => {
           </Text>
           <Box direction="row" justify="center">
             <Box border={{ color: "black", size: "medium" }} direction="row">
-              <Keyboard width={300} onKeyPress={(key) => play(notes[key])} />
-
               <Keyboard
-                width={300}
-                onKeyPress={(key) => play(notes[key] * 2)}
-              />
+                onKeyDown={(e) => letter[e.key] && play(letter[e.key])}
+                target="document"
+              >
+                <PianoKeyboard
+                  width={300}
+                  onKeyPress={(key) => play(notes[key])}
+                  letterSound={Object.keys(first)}
+                />
+                <PianoKeyboard
+                  width={300}
+                  onKeyPress={(key) => play(notes[key] * 2)}
+                  letterSound={Object.keys(second)}
+                />
+              </Keyboard>
             </Box>
           </Box>
           <Box>&nbsp;</Box>

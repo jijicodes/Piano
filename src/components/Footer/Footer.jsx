@@ -16,7 +16,7 @@ export const Footer = () => {
         // justify="center"
         width={size === "small" ? "-10vw" : "50vw"}
         gap="medium"
-        margin={size === "small" ? "-12vh" : "-8vh"}
+        // margin={size === "small" ? "-12vh" : "-8vh"}
       >
         <Anchor
           size={size === "small" ? "small" : "medium"}

@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Box, Button, Text, Layer, ResponsiveContext } from "grommet";
-
 import { useTimeout } from "../../hooks/useTimeout";
 
-export const LandingPage = ({}) => {
+export const LandingPage = ({ onGo }) => {
   const size = useContext(ResponsiveContext);
   const [on, setOn] = useState(false);
+
   useTimeout({ callback: () => setOn(true) });
 
   return (
@@ -44,7 +44,7 @@ export const LandingPage = ({}) => {
                   color="#39AD9C"
                   hoverIndicator={{ weight: "bolder" }}
                   label="Go"
-                  onClick={() => console.log("clicked")}
+                  onClick={onGo}
                   alignSelf="center"
                 />
               </Box>
@@ -69,7 +69,7 @@ export const LandingPage = ({}) => {
                   color="#39AD9C"
                   hoverIndicator={{ weight: "bolder" }}
                   label="Go"
-                  onClick={() => console.log("clicked")}
+                  onClick={onGo}
                 />
               </Box>
             </Box>
