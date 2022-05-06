@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Piano/static/css/main.073c9b0a.css",
-    "main.js": "/Piano/static/js/main.518b1a56.js",
+    "main.js": "/Piano/static/js/main.650f41a3.js",
     "index.html": "/Piano/index.html",
     "main.073c9b0a.css.map": "/Piano/static/css/main.073c9b0a.css.map",
-    "main.518b1a56.js.map": "/Piano/static/js/main.518b1a56.js.map"
+    "main.650f41a3.js.map": "/Piano/static/js/main.650f41a3.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.518b1a56.js"
+    "static/js/main.650f41a3.js"
   ]
 }
